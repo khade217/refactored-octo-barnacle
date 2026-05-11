@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dictionary Table - W3.CSS + w3.js</title>
+    <link rel="stylesheet" href="w3.css" onerror="this.onerror=null;this.href='https://www.w3schools.com/w3css/4/w3.css';">
+    <noscript><link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"></noscript>
+    <script src="https://www.w3schools.com/lib/w3.js" onerror="this.onerror=null;this.src='w3.js';"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="w3-light-grey">
+    <div class="w3-container w3-padding-32 w3-center">
+        <h1 class="w3-xxlarge w3-text-dark-grey">English Language Dictionary</h1>
+        <p class="w3-large w3-text-grey">Click any word to see its definition</p>
+    </div>
+
+    <div class="w3-container w3-padding-16">
+        <div class="w3-card w3-white w3-round-large w3-padding">
+            <div class="w3-margin-bottom w3-row">
+                <div class="w3-col m6 s12">
+                    <input class="w3-input w3-border w3-round" 
+                           id="search-input"
+                           oninput="filterTable(this.value)" 
+                           placeholder="Search words...">
+                </div>
+                <div class="w3-col m6 s12 w3-right-align w3-margin-top">
+                    <span id="entry-count" class="w3-text-grey w3-large"></span> entries
+                </div>
+            </div>
+            <div class="w3-responsive">
+                <table class="w3-table w3-striped w3-bordered w3-hoverable" id="dict-table">
+                    <thead class="w3-dark-grey w3-text-white">
+                        <tr>
+                            <th class="w3-padding-16">#</th>
+                            <th class="w3-padding-16">Word</th>
+                            <th class="w3-padding-16">Part of Speech</th>
+                            <th class="w3-padding-16">Definition</th>
+                            <th class="w3-padding-16 w3-hide-small">Example</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-body"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="w3-container w3-padding-16">
+        <div class="w3-card w3-white w3-round-large w3-padding">
+            <h3 class="w3-large w3-text-dark-grey w3-margin-bottom">
+                <span class="w3-text-green">&#9654;</span> JSON Data Source
+            </h3>
+            <div class="w3-margin-bottom">
+                <button class="w3-button w3-green w3-round w3-margin-right" onclick="copyJsonToClipboard()">
+                    <b>&#128203; Copy JSON to Clipboard</b>
+                </button>
+                <button class="w3-button w3-blue-grey w3-round" onclick="toggleJsonPreview()">
+                    <b>&#128065; Toggle Preview</b>
+                </button>
+            </div>
+            <div id="json-preview" class="json-preview w3-padding w3-margin-top" style="display:none;"></div>
+        </div>
+    </div>
+
+    <div id="def-modal" class="w3-modal">
+        <div class="w3-modal-content w3-card-4 w3-animate-top" style="max-width:500px">
+            <header class="w3-container w3-blue">
+                <span onclick="document.getElementById('def-modal').style.display='none'" 
+                      class="w3-button w3-display-topright">&times;</span>
+                <h2 id="modal-word" class="w3-xlarge"></h2>
+            </header>
+            <div class="w3-container w3-padding-24">
+                <p id="modal-pos" class="w3-text-teal w3-large"></p>
+                <p id="modal-def" class="w3-large"></p>
+                <p id="modal-example" class="w3-text-grey w3-italic w3-margin-top"></p>
+            </div>
+            <footer class="w3-container w3-light-grey w3-padding">
+                <button class="w3-button w3-blue w3-round" 
+                        onclick="document.getElementById('def-modal').style.display='none'">Close</button>
+            </footer>
+        </div>
+    </div>
+
+    <div id="toast" class="w3-card-4 toast">JSON copied to clipboard!</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
