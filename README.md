@@ -14,7 +14,7 @@ w3css and w3.js example with css fallback
 
 *A Beautiful, Interactive Dictionary Web App*
 
-[🚀 Live https://khade217.github.io/refactored-octo-barnacle• [📖 Documentation](#) • [🐛 Report Bug](#) • [💡 Request Feature](#)
+[🚀 Live Demo](https://khade217.github.io/refactored-octo-barnacle/) • [📖 Documentation](#) • [🐛 Report Bug](#) • [💡 Request Feature](#)
 
 </div>
 
